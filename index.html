@@ -24,38 +24,22 @@
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', system-ui, sans-serif;
       background: var(--bg);
       color: var(--text);
       overflow-x: hidden;
     }
 
-    /* ── Scrollbar ── */
     ::-webkit-scrollbar { width: 3px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 2px; }
 
-    /* ── Canvas ── */
-    #bg {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-    }
+    #bg { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; }
 
-    /* ── Glow orbs ── */
-    .orb {
-      position: fixed;
-      border-radius: 50%;
-      filter: blur(100px);
-      pointer-events: none;
-      z-index: 0;
-    }
+    .orb { position: fixed; border-radius: 50%; filter: blur(100px); pointer-events: none; z-index: 0; }
     .orb-a { width: 600px; height: 600px; background: rgba(99,102,241,0.07); top: -150px; right: -150px; }
-    .orb-b { width: 450px; height: 450px; background: rgba(6,182,212,0.05);  bottom: 100px; left: -120px; }
+    .orb-b { width: 450px; height: 450px; background: rgba(6,182,212,0.05); bottom: 100px; left: -120px; }
 
-    /* ── Content wrapper ── */
     .site { position: relative; z-index: 1; }
 
     /* ── Nav ── */
@@ -84,6 +68,8 @@
       background-clip: text;
     }
 
+    .nav-right { display: flex; align-items: center; gap: 32px; }
+
     .nav-links { display: flex; gap: 38px; list-style: none; }
 
     .nav-links a {
@@ -106,11 +92,34 @@
     .nav-links a:hover { color: var(--text); }
     .nav-links a:hover::after { width: 100%; }
 
+    /* ── Language toggle ── */
+    .lang-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: transparent;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    .lang-btn:hover {
+      border-color: var(--primary);
+      color: var(--text);
+      background: rgba(99,102,241,0.1);
+    }
+    .lang-btn .lang-icon { font-size: 0.9rem; }
+
     /* ── Side dots ── */
     .side-dots {
       position: fixed;
-      right: 28px;
-      top: 50%;
+      right: 28px; top: 50%;
       transform: translateY(-50%);
       display: flex;
       flex-direction: column;
@@ -138,12 +147,7 @@
     }
 
     /* ── Hero ── */
-    #hero {
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-      gap: 0;
-    }
+    #hero { flex-direction: column; justify-content: center; text-align: center; gap: 0; }
 
     .badge {
       display: inline-flex;
@@ -164,11 +168,9 @@
       border-radius: 50%;
       background: var(--accent);
       animation: blink 2s infinite;
+      flex-shrink: 0;
     }
-    @keyframes blink {
-      0%,100% { opacity: 1; }
-      50%      { opacity: 0.3; }
-    }
+    @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
 
     .hero-name {
       font-size: clamp(3.2rem, 8.5vw, 7.5rem);
@@ -182,12 +184,7 @@
       background-clip: text;
     }
 
-    .hero-role {
-      font-size: clamp(1rem, 2.2vw, 1.45rem);
-      color: var(--muted);
-      margin-bottom: 10px;
-      font-weight: 400;
-    }
+    .hero-role { font-size: clamp(1rem, 2.2vw, 1.45rem); color: var(--muted); margin-bottom: 10px; font-weight: 400; }
 
     .grad-text {
       background: var(--grad);
@@ -197,13 +194,7 @@
       font-weight: 600;
     }
 
-    .hero-desc {
-      font-size: 1rem;
-      color: var(--muted);
-      max-width: 480px;
-      margin: 18px auto 40px;
-      line-height: 1.75;
-    }
+    .hero-desc { font-size: 1rem; color: var(--muted); max-width: 480px; margin: 18px auto 40px; line-height: 1.75; }
 
     .btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 
@@ -221,24 +212,14 @@
       letter-spacing: 0.03em;
       border: none;
     }
-    .btn-primary {
-      background: var(--grad);
-      color: #fff;
-      box-shadow: 0 0 32px rgba(99,102,241,0.35);
-    }
+    .btn-primary { background: var(--grad); color: #fff; box-shadow: 0 0 32px rgba(99,102,241,0.35); }
     .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 0 50px rgba(99,102,241,0.55); }
-    .btn-ghost {
-      background: transparent;
-      color: var(--text);
-      border: 1px solid var(--border);
-      backdrop-filter: blur(10px);
-    }
+    .btn-ghost { background: transparent; color: var(--text); border: 1px solid var(--border); backdrop-filter: blur(10px); }
     .btn-ghost:hover { border-color: var(--primary); background: rgba(99,102,241,0.08); transform: translateY(-3px); }
 
     .scroll-cue {
       position: absolute;
-      bottom: 44px;
-      left: 50%;
+      bottom: 44px; left: 50%;
       transform: translateX(-50%);
       display: flex;
       flex-direction: column;
@@ -250,8 +231,7 @@
       text-transform: uppercase;
     }
     .scroll-line {
-      width: 1px;
-      height: 52px;
+      width: 1px; height: 52px;
       background: linear-gradient(to bottom, var(--primary), transparent);
       animation: scrollLine 2s ease-in-out infinite;
     }
@@ -295,21 +275,11 @@
       width: 100%;
     }
 
-    .about-body p {
-      color: var(--muted);
-      line-height: 1.85;
-      font-size: 1.02rem;
-      margin-bottom: 18px;
-    }
+    .about-body p { color: var(--muted); line-height: 1.85; font-size: 1.02rem; margin-bottom: 18px; }
     .about-body p strong { color: var(--text); font-weight: 600; }
-
     .about-cta { margin-top: 32px; }
 
-    .stats-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
+    .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .stat-box {
       padding: 26px 22px;
       border: 1px solid var(--border);
@@ -335,12 +305,7 @@
     /* ── Skills ── */
     #skills { flex-direction: column; align-items: flex-start; gap: 50px; }
 
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
-      width: 100%;
-    }
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; width: 100%; }
 
     .skill-card {
       padding: 30px 28px;
@@ -369,38 +334,15 @@
     .skill-card-title { font-size: 0.95rem; font-weight: 600; margin-bottom: 22px; color: var(--text); }
 
     .skill-rows { display: flex; flex-direction: column; gap: 12px; }
-
-    .skill-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.82rem;
-    }
+    .skill-row { display: flex; align-items: center; gap: 10px; font-size: 0.82rem; }
     .skill-row-name { color: var(--muted); min-width: 110px; }
-    .bar-track {
-      flex: 1;
-      height: 3px;
-      background: rgba(255,255,255,0.06);
-      border-radius: 2px;
-      overflow: hidden;
-    }
-    .bar-fill {
-      height: 100%;
-      border-radius: 2px;
-      background: var(--grad);
-      width: 0;
-      transition: width 1.1s cubic-bezier(0.25,1,0.5,1);
-    }
+    .bar-track { flex: 1; height: 3px; background: rgba(255,255,255,0.06); border-radius: 2px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 2px; background: var(--grad); width: 0; transition: width 1.1s cubic-bezier(0.25,1,0.5,1); }
 
     /* ── Works ── */
     #works { flex-direction: column; align-items: flex-start; gap: 50px; }
 
-    .works-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 22px;
-      width: 100%;
-    }
+    .works-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px; width: 100%; }
 
     .work-card {
       border: 1px solid var(--border);
@@ -410,11 +352,7 @@
       overflow: hidden;
       transition: transform 0.35s, border-color 0.3s, box-shadow 0.35s;
     }
-    .work-card:hover {
-      transform: translateY(-7px);
-      border-color: rgba(99,102,241,0.45);
-      box-shadow: 0 20px 60px rgba(99,102,241,0.12);
-    }
+    .work-card:hover { transform: translateY(-7px); border-color: rgba(99,102,241,0.45); box-shadow: 0 20px 60px rgba(99,102,241,0.12); }
 
     .work-thumb {
       height: 170px;
@@ -433,22 +371,14 @@
                   radial-gradient(circle at 75% 30%, rgba(6,182,212,0.15), transparent 55%);
     }
     .work-emoji { position: relative; z-index: 1; }
-
     .work-body { padding: 24px; }
 
     .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
-    .tag {
-      padding: 3px 10px;
-      border-radius: 100px;
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-    }
-    .tag-blue   { background: rgba(99,102,241,0.14); color: #818cf8; border: 1px solid rgba(99,102,241,0.28); }
-    .tag-cyan   { background: rgba(6,182,212,0.11);  color: #22d3ee; border: 1px solid rgba(6,182,212,0.28); }
-    .tag-green  { background: rgba(16,185,129,0.11); color: #34d399; border: 1px solid rgba(16,185,129,0.28); }
-    .tag-pink   { background: rgba(236,72,153,0.11); color: #f472b6; border: 1px solid rgba(236,72,153,0.28); }
+    .tag { padding: 3px 10px; border-radius: 100px; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+    .tag-blue  { background: rgba(99,102,241,0.14); color: #818cf8; border: 1px solid rgba(99,102,241,0.28); }
+    .tag-cyan  { background: rgba(6,182,212,0.11);  color: #22d3ee; border: 1px solid rgba(6,182,212,0.28); }
+    .tag-green { background: rgba(16,185,129,0.11); color: #34d399; border: 1px solid rgba(16,185,129,0.28); }
+    .tag-pink  { background: rgba(236,72,153,0.11); color: #f472b6; border: 1px solid rgba(236,72,153,0.28); }
 
     .work-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
     .work-desc  { font-size: 0.86rem; color: var(--muted); line-height: 1.7; margin-bottom: 18px; }
@@ -479,13 +409,10 @@
 
     /* ── Contact ── */
     #contact { flex-direction: column; align-items: center; justify-content: center; text-align: center; }
-
     .contact-wrap { max-width: 620px; }
-
     .contact-desc { color: var(--muted); line-height: 1.75; font-size: 1rem; margin-bottom: 44px; }
 
     .social-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-
     .social-card {
       display: flex;
       align-items: center;
@@ -525,7 +452,6 @@
       .skills-grid { grid-template-columns: 1fr; }
       .side-dots { display: none; }
     }
-
     @media (max-width: 500px) {
       .hero-name { letter-spacing: -0.02em; }
       .stats-grid { grid-template-columns: 1fr 1fr; }
@@ -537,8 +463,6 @@
 <canvas id="bg"></canvas>
 <div class="orb orb-a"></div>
 <div class="orb orb-b"></div>
-
-<!-- Side dots -->
 <div class="side-dots" id="sideDots"></div>
 
 <div class="site">
@@ -546,97 +470,107 @@
   <!-- Nav -->
   <nav>
     <div class="logo">HI.</div>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#works">Works</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="#about"   data-i18n="nav_about">About</a></li>
+        <li><a href="#skills"  data-i18n="nav_skills">Skills</a></li>
+        <li><a href="#works"   data-i18n="nav_works">Works</a></li>
+        <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+      </ul>
+      <button class="lang-btn" id="langBtn" onclick="toggleLang()">
+        <span class="lang-icon">🌐</span>
+        <span id="langLabel">日本語</span>
+      </button>
+    </div>
   </nav>
 
-  <!-- ════════ HERO ════════ -->
+  <!-- ════ HERO ════ -->
   <section id="hero">
-    <div class="badge"><span class="badge-dot"></span>Open to collaboration</div>
+    <div class="badge">
+      <span class="badge-dot"></span>
+      <span data-i18n="badge">Open to collaboration</span>
+    </div>
     <h1 class="hero-name">Haruki<br>Iwasaki</h1>
     <p class="hero-role">
-      <span class="grad-text">VR / Web Developer</span> &amp; MovIT Vice President
+      <span class="grad-text">VR / Web Developer</span>
+      &nbsp;<span data-i18n="hero_role_suffix">&amp; MovIT Vice President</span>
     </p>
-    <p class="hero-desc">
+    <p class="hero-desc" data-i18n="hero_desc">
       Building immersive VR experiences and modern web applications—bridging the physical and digital through code.
     </p>
     <div class="btns">
-      <a href="#works" class="btn btn-primary">View My Work →</a>
+      <a href="#works" class="btn btn-primary" data-i18n="btn_view_work">View My Work →</a>
       <a href="https://www.linkedin.com/in/haruki-iwasaki-57283435b" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn ↗</a>
     </div>
     <div class="scroll-cue">
       <div class="scroll-line"></div>
-      <span>Scroll</span>
+      <span data-i18n="scroll">Scroll</span>
     </div>
   </section>
 
-  <!-- ════════ ABOUT ════════ -->
+  <!-- ════ ABOUT ════ -->
   <section id="about">
     <div>
-      <div class="eyebrow">About Me</div>
-      <h2 class="sec-title">Crafting <span>digital realities</span><br>with code</h2>
+      <div class="eyebrow" data-i18n="about_eyebrow">About Me</div>
+      <h2 class="sec-title" data-i18n-html="about_title">Crafting <span>digital realities</span><br>with code</h2>
     </div>
     <div class="about-grid">
       <div class="about-body">
-        <p>
+        <p data-i18n-html="about_p1">
           I'm a <strong>VR and Web developer</strong> passionate about experiences that blur the line between the physical and digital worlds. As <strong>Vice President of MovIT</strong>, I lead technical initiatives that push the boundaries of immersive technology.
         </p>
-        <p>
+        <p data-i18n-html="about_p2">
           My work spans from award-winning VR applications exhibited at <strong>Laval Virtual 2025</strong>—one of the world's leading XR events—to scalable web platforms solving real-world problems. I thrive at the intersection of creative vision and technical precision.
         </p>
-        <p>
+        <p data-i18n-html="about_p3">
           Currently studying at <strong>Tama Art University</strong>, where I explore the convergence of art, design, and engineering.
         </p>
         <div class="about-cta">
-          <a href="https://www.linkedin.com/in/haruki-iwasaki-57283435b" target="_blank" rel="noopener" class="btn btn-primary">Connect on LinkedIn →</a>
+          <a href="https://www.linkedin.com/in/haruki-iwasaki-57283435b" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="btn_linkedin">Connect on LinkedIn →</a>
         </div>
       </div>
       <div class="stats-grid">
         <div class="stat-box">
           <div class="stat-num">2</div>
-          <div class="stat-lbl">Int'l Exhibitions</div>
+          <div class="stat-lbl" data-i18n="stat_exhibitions">Int'l Exhibitions</div>
         </div>
         <div class="stat-box">
           <div class="stat-num">3+</div>
-          <div class="stat-lbl">Tech Stacks</div>
+          <div class="stat-lbl" data-i18n="stat_stacks">Tech Stacks</div>
         </div>
         <div class="stat-box">
           <div class="stat-num">XR</div>
-          <div class="stat-lbl">Specialist</div>
+          <div class="stat-lbl" data-i18n="stat_xr">Specialist</div>
         </div>
         <div class="stat-box">
           <div class="stat-num">VP</div>
-          <div class="stat-lbl">MovIT</div>
+          <div class="stat-lbl" data-i18n="stat_vp">MovIT</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ════════ SKILLS ════════ -->
+  <!-- ════ SKILLS ════ -->
   <section id="skills">
     <div>
-      <div class="eyebrow">Expertise</div>
-      <h2 class="sec-title">Technical <span>Skills</span></h2>
+      <div class="eyebrow" data-i18n="skills_eyebrow">Expertise</div>
+      <h2 class="sec-title" data-i18n-html="skills_title">Technical <span>Skills</span></h2>
     </div>
     <div class="skills-grid">
 
       <div class="skill-card">
         <span class="skill-icon">🥽</span>
-        <div class="skill-card-title">VR / Game Development</div>
+        <div class="skill-card-title" data-i18n="skill_vr_title">VR / Game Development</div>
         <div class="skill-rows">
           <div class="skill-row"><span class="skill-row-name">Unity</span><div class="bar-track"><div class="bar-fill" data-w="92"></div></div></div>
           <div class="skill-row"><span class="skill-row-name">C#</span><div class="bar-track"><div class="bar-fill" data-w="88"></div></div></div>
-          <div class="skill-row"><span class="skill-row-name">VR Development</span><div class="bar-track"><div class="bar-fill" data-w="85"></div></div></div>
+          <div class="skill-row"><span class="skill-row-name" data-i18n="skill_vr_dev">VR Development</span><div class="bar-track"><div class="bar-fill" data-w="85"></div></div></div>
         </div>
       </div>
 
       <div class="skill-card">
         <span class="skill-icon">🌐</span>
-        <div class="skill-card-title">Frontend</div>
+        <div class="skill-card-title" data-i18n="skill_fe_title">Frontend</div>
         <div class="skill-rows">
           <div class="skill-row"><span class="skill-row-name">HTML / CSS / JS</span><div class="bar-track"><div class="bar-fill" data-w="93"></div></div></div>
           <div class="skill-row"><span class="skill-row-name">Vue.js</span><div class="bar-track"><div class="bar-fill" data-w="80"></div></div></div>
@@ -646,7 +580,7 @@
 
       <div class="skill-card">
         <span class="skill-icon">⚙️</span>
-        <div class="skill-card-title">Backend</div>
+        <div class="skill-card-title" data-i18n="skill_be_title">Backend</div>
         <div class="skill-rows">
           <div class="skill-row"><span class="skill-row-name">Python</span><div class="bar-track"><div class="bar-fill" data-w="87"></div></div></div>
           <div class="skill-row"><span class="skill-row-name">Django</span><div class="bar-track"><div class="bar-fill" data-w="82"></div></div></div>
@@ -657,17 +591,16 @@
     </div>
   </section>
 
-  <!-- ════════ WORKS ════════ -->
+  <!-- ════ WORKS ════ -->
   <section id="works">
     <div>
-      <div class="eyebrow">Portfolio</div>
-      <h2 class="sec-title">Featured <span>Works</span></h2>
+      <div class="eyebrow" data-i18n="works_eyebrow">Portfolio</div>
+      <h2 class="sec-title" data-i18n-html="works_title">Featured <span>Works</span></h2>
     </div>
     <div class="works-grid">
 
-      <!-- Voice be Chord -->
       <div class="work-card">
-        <div class="work-thumb" style="background: linear-gradient(135deg, rgba(99,102,241,0.18), rgba(167,139,250,0.18));">
+        <div class="work-thumb" style="background:linear-gradient(135deg,rgba(99,102,241,0.18),rgba(167,139,250,0.18))">
           <span class="work-emoji">🎵</span>
         </div>
         <div class="work-body">
@@ -678,16 +611,15 @@
             <span class="tag tag-pink">IVRC 2024</span>
           </div>
           <h3 class="work-title">Voice be Chord</h3>
-          <p class="work-desc">
+          <p class="work-desc" data-i18n-html="work1_desc">
             An immersive VR experience where users create music through voice and movement. Selected for <strong style="color:var(--text)">IVRC 2024</strong> and exhibited at <strong style="color:var(--text)">Laval Virtual 2025</strong>—Europe's premier international XR conference.
           </p>
-          <div class="award-badge">🏆 Laval Virtual 2025 Exhibition</div>
+          <div class="award-badge" data-i18n="work1_award">🏆 Laval Virtual 2025 Exhibition</div>
         </div>
       </div>
 
-      <!-- Django Web Service -->
       <div class="work-card">
-        <div class="work-thumb" style="background: linear-gradient(135deg, rgba(6,182,212,0.15), rgba(16,185,129,0.15));">
+        <div class="work-thumb" style="background:linear-gradient(135deg,rgba(6,182,212,0.15),rgba(16,185,129,0.15))">
           <span class="work-emoji">🖥️</span>
         </div>
         <div class="work-body">
@@ -696,17 +628,16 @@
             <span class="tag tag-green">Django</span>
             <span class="tag tag-blue">Web App</span>
           </div>
-          <h3 class="work-title">Django Web Service</h3>
-          <p class="work-desc">
+          <h3 class="work-title" data-i18n="work2_title">Django Web Service</h3>
+          <p class="work-desc" data-i18n="work2_desc">
             A full-stack web application built with Django featuring robust RESTful APIs, user authentication, dynamic data management, and production-grade deployment configuration.
           </p>
-          <a href="https://github.com/iwasaki2" target="_blank" rel="noopener" class="work-link">View on GitHub →</a>
+          <a href="https://github.com/iwasaki2" target="_blank" rel="noopener" class="work-link" data-i18n="btn_github">View on GitHub →</a>
         </div>
       </div>
 
-      <!-- Matching Service -->
       <div class="work-card">
-        <div class="work-thumb" style="background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(6,182,212,0.15));">
+        <div class="work-thumb" style="background:linear-gradient(135deg,rgba(16,185,129,0.15),rgba(6,182,212,0.15))">
           <span class="work-emoji">🤝</span>
         </div>
         <div class="work-body">
@@ -715,25 +646,25 @@
             <span class="tag tag-cyan">Vue.js</span>
             <span class="tag tag-green">EdTech</span>
           </div>
-          <h3 class="work-title">EduBridge</h3>
-          <p class="work-desc">
+          <h3 class="work-title" data-i18n="work3_title">EduBridge</h3>
+          <p class="work-desc" data-i18n="work3_desc">
             A matching platform connecting high school students with universities—streamlining discovery, enabling direct communication, and closing the information gap in Japan's education system.
           </p>
-          <a href="https://github.com/iwasaki2" target="_blank" rel="noopener" class="work-link">View on GitHub →</a>
+          <a href="https://github.com/iwasaki2" target="_blank" rel="noopener" class="work-link" data-i18n="btn_github">View on GitHub →</a>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- ════════ CONTACT ════════ -->
+  <!-- ════ CONTACT ════ -->
   <section id="contact">
     <div class="contact-wrap">
-      <div class="eyebrow" style="justify-content:center">Get In Touch</div>
-      <h2 class="sec-title" style="font-size:clamp(2rem,4vw,3rem)">
+      <div class="eyebrow" style="justify-content:center" data-i18n="contact_eyebrow">Get In Touch</div>
+      <h2 class="sec-title" style="font-size:clamp(2rem,4vw,3rem)" data-i18n-html="contact_title">
         Let's <span>build</span> something<br>remarkable
       </h2>
-      <p class="contact-desc">
+      <p class="contact-desc" data-i18n="contact_desc">
         Whether you're interested in VR collaboration, web development, or just want to connect—I'd love to hear from you.
       </p>
       <div class="social-row">
@@ -757,9 +688,135 @@
     <p>© 2025 Haruki Iwasaki &mdash; Built with Three.js &amp; GSAP</p>
   </footer>
 
-</div><!-- /site -->
+</div>
 
 <script>
+// ╔══════════════════════════════════════════════════════╗
+// ║                  TRANSLATIONS (i18n)                 ║
+// ╚══════════════════════════════════════════════════════╝
+const i18n = {
+  en: {
+    nav_about:   'About',
+    nav_skills:  'Skills',
+    nav_works:   'Works',
+    nav_contact: 'Contact',
+
+    badge:            'Open to collaboration',
+    hero_role_suffix: '& MovIT Vice President',
+    hero_desc:        'Building immersive VR experiences and modern web applications—bridging the physical and digital through code.',
+    btn_view_work:    'View My Work →',
+    scroll:           'Scroll',
+
+    about_eyebrow: 'About Me',
+    about_title:   'Crafting <span>digital realities</span><br>with code',
+    about_p1:      'I\'m a <strong>VR and Web developer</strong> passionate about experiences that blur the line between the physical and digital worlds. As <strong>Vice President of MovIT</strong>, I lead technical initiatives that push the boundaries of immersive technology.',
+    about_p2:      'My work spans from award-winning VR applications exhibited at <strong>Laval Virtual 2025</strong>—one of the world\'s leading XR events—to scalable web platforms solving real-world problems. I thrive at the intersection of creative vision and technical precision.',
+    about_p3:      'Currently studying at <strong>Tama Art University</strong>, where I explore the convergence of art, design, and engineering.',
+    btn_linkedin:     'Connect on LinkedIn →',
+    stat_exhibitions: "Int'l Exhibitions",
+    stat_stacks:      'Tech Stacks',
+    stat_xr:          'Specialist',
+    stat_vp:          'MovIT',
+
+    skills_eyebrow: 'Expertise',
+    skills_title:   'Technical <span>Skills</span>',
+    skill_vr_title: 'VR / Game Development',
+    skill_vr_dev:   'VR Development',
+    skill_fe_title: 'Frontend',
+    skill_be_title: 'Backend',
+
+    works_eyebrow: 'Portfolio',
+    works_title:   'Featured <span>Works</span>',
+    work1_desc:    'An immersive VR experience where users create music through voice and movement. Selected for <strong style="color:var(--text)">IVRC 2024</strong> and exhibited at <strong style="color:var(--text)">Laval Virtual 2025</strong>—Europe\'s premier international XR conference.',
+    work1_award:   '🏆 Laval Virtual 2025 Exhibition',
+    work2_title:   'Django Web Service',
+    work2_desc:    'A full-stack web application built with Django featuring robust RESTful APIs, user authentication, dynamic data management, and production-grade deployment configuration.',
+    work3_title:   'EduBridge',
+    work3_desc:    'A matching platform connecting high school students with universities—streamlining discovery, enabling direct communication, and closing the information gap in Japan\'s education system.',
+    btn_github:    'View on GitHub →',
+
+    contact_eyebrow: 'Get In Touch',
+    contact_title:   "Let's <span>build</span> something<br>remarkable",
+    contact_desc:    "Whether you're interested in VR collaboration, web development, or just want to connect—I'd love to hear from you.",
+  },
+  ja: {
+    nav_about:   'About',
+    nav_skills:  'Skills',
+    nav_works:   'Works',
+    nav_contact: 'Contact',
+
+    badge:            'コラボレーション募集中',
+    hero_role_suffix: 'MovIT 副代表',
+    hero_desc:        '没入型VR体験とモダンなWebアプリケーションを開発—コードを通じて物理とデジタルの世界をつなぐ。',
+    btn_view_work:    '作品を見る →',
+    scroll:           'スクロール',
+
+    about_eyebrow: '私について',
+    about_title:   '<span>デジタルの現実</span>を<br>コードで創造する',
+    about_p1:      '<strong>VR・Webエンジニア</strong>として、物理とデジタルの境界を溶かす体験づくりに情熱を注いでいます。<strong>MovIT 副代表</strong>として、没入型テクノロジーの限界に挑む技術的取り組みをリードしています。',
+    about_p2:      '世界有数のXRイベント <strong>Laval Virtual 2025</strong> への出展作品から、現実の課題を解決するスケーラブルなWebプラットフォームまで、幅広い開発経験を持ちます。クリエイティブなビジョンと技術的な精度が交差する場所で力を発揮します。',
+    about_p3:      '<strong>多摩美術大学</strong>在学中。芸術・デザイン・エンジニアリングの融合を探求しています。',
+    btn_linkedin:     'LinkedInでつながる →',
+    stat_exhibitions: '国際展示',
+    stat_stacks:      '技術スタック',
+    stat_xr:          'スペシャリスト',
+    stat_vp:          '副代表',
+
+    skills_eyebrow: '専門分野',
+    skills_title:   '技術<span>スキル</span>',
+    skill_vr_title: 'VR / ゲーム開発',
+    skill_vr_dev:   'VR 開発',
+    skill_fe_title: 'フロントエンド',
+    skill_be_title: 'バックエンド',
+
+    works_eyebrow: 'ポートフォリオ',
+    works_title:   '制作<span>実績</span>',
+    work1_desc:    '声と動きで音楽を生み出す没入型VR体験。<strong style="color:var(--text)">IVRC 2024</strong> に採択され、ヨーロッパ最大級のXRイベント <strong style="color:var(--text)">Laval Virtual 2025</strong> に出展。',
+    work1_award:   '🏆 Laval Virtual 2025 出展',
+    work2_title:   'Djangoウェブサービス',
+    work2_desc:    'Djangoで構築したフルスタックWebアプリ。堅牢なRESTful API・ユーザー認証・動的データ管理・本番グレードのデプロイ構成を実装。',
+    work3_title:   'EduBridge',
+    work3_desc:    '高校生と大学をつなぐマッチングプラットフォーム。情報格差を解消し、進路の発見と直接コミュニケーションを実現。',
+    btn_github:    'GitHubで見る →',
+
+    contact_eyebrow: 'お問い合わせ',
+    contact_title:   '一緒に<span>素晴らしいもの</span>を<br>作りましょう',
+    contact_desc:    'VRコラボレーション、Web開発プロジェクト、または単純につながりたい方—ぜひお気軽にご連絡ください。',
+  }
+};
+
+let currentLang = localStorage.getItem('lang') || 'en';
+
+function applyLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('lang', lang);
+  document.documentElement.lang = lang;
+
+  const t = i18n[lang];
+
+  // textContent
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (t[key] !== undefined) el.textContent = t[key];
+  });
+
+  // innerHTML (for elements with spans/strong/br)
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.dataset.i18nHtml;
+    if (t[key] !== undefined) el.innerHTML = t[key];
+  });
+
+  // Toggle button label
+  document.getElementById('langLabel').textContent = lang === 'en' ? '日本語' : 'English';
+}
+
+function toggleLang() {
+  applyLang(currentLang === 'en' ? 'ja' : 'en');
+}
+
+// Apply on load
+applyLang(currentLang);
+
 // ╔══════════════════════════════════════════════════════╗
 // ║                    THREE.JS SCENE                    ║
 // ╚══════════════════════════════════════════════════════╝
@@ -773,7 +830,6 @@
   const camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 1000);
   camera.position.z = 65;
 
-  // ── Particles ──
   const N = 160;
   const pos = [], vel = [];
   const pArr = new Float32Array(N * 3);
@@ -792,7 +848,6 @@
   const pMat = new THREE.PointsMaterial({ size: 1.8, color: 0x6366f1, transparent: true, opacity: 0.65 });
   scene.add(new THREE.Points(pGeo, pMat));
 
-  // ── Connection lines ──
   const MAX = 4000;
   const lPos = new Float32Array(MAX * 6);
   const lCol = new Float32Array(MAX * 6);
@@ -806,24 +861,20 @@
   const CB = new THREE.Color(0x06b6d4);
   const DIST = 26;
 
-  // ── Mouse ──
   const mouse = { x: 0, y: 0 };
   window.addEventListener('mousemove', e => {
     mouse.x = (e.clientX / window.innerWidth  - 0.5) * 2;
     mouse.y = -(e.clientY / window.innerHeight - 0.5) * 2;
   });
 
-  // ── Resize ──
   window.addEventListener('resize', () => {
     renderer.setSize(window.innerWidth, window.innerHeight);
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
   });
 
-  // ── Animate ──
   function tick() {
     requestAnimationFrame(tick);
-
     for (let i = 0; i < N; i++) {
       pos[i][0] += vel[i][0]; pos[i][1] += vel[i][1]; pos[i][2] += vel[i][2];
       if (pos[i][0] >  80) pos[i][0] = -80;
@@ -857,7 +908,6 @@
     camera.position.x += (mouse.x * 7 - camera.position.x) * 0.018;
     camera.position.y += (mouse.y * 4 - camera.position.y) * 0.018;
     camera.lookAt(scene.position);
-
     renderer.render(scene, camera);
   }
   tick();
@@ -869,7 +919,6 @@
 (function () {
   gsap.registerPlugin(ScrollTrigger);
 
-  // Hero entrance
   gsap.timeline({ delay: 0.2 })
     .from('.badge',      { opacity: 0, y: 24, duration: 0.7 })
     .from('.hero-name',  { opacity: 0, y: 50, duration: 1,   ease: 'power3.out' }, '-=0.35')
@@ -878,7 +927,6 @@
     .from('.btns',       { opacity: 0, y: 18, duration: 0.7 }, '-=0.4')
     .from('.scroll-cue', { opacity: 0,        duration: 0.6 }, '-=0.2');
 
-  // About
   gsap.from('.about-body', {
     opacity: 0, x: -55, duration: 1, ease: 'power2.out',
     scrollTrigger: { trigger: '#about', start: 'top 72%' }
@@ -888,35 +936,26 @@
     scrollTrigger: { trigger: '.stats-grid', start: 'top 78%' }
   });
 
-  // Skill cards
   gsap.from('.skill-card', {
     opacity: 0, y: 55, stagger: 0.14, duration: 0.85, ease: 'power2.out',
     scrollTrigger: { trigger: '#skills', start: 'top 68%' }
   });
 
-  // Skill bars
   ScrollTrigger.create({
-    trigger: '#skills',
-    start: 'top 58%',
-    once: true,
-    onEnter() {
-      document.querySelectorAll('.bar-fill').forEach(b => { b.style.width = b.dataset.w + '%'; });
-    }
+    trigger: '#skills', start: 'top 58%', once: true,
+    onEnter() { document.querySelectorAll('.bar-fill').forEach(b => { b.style.width = b.dataset.w + '%'; }); }
   });
 
-  // Work cards
   gsap.from('.work-card', {
     opacity: 0, y: 60, stagger: 0.13, duration: 0.85, ease: 'power2.out',
     scrollTrigger: { trigger: '#works', start: 'top 70%' }
   });
 
-  // Contact
   gsap.from('.contact-wrap', {
     opacity: 0, y: 50, duration: 1, ease: 'power2.out',
     scrollTrigger: { trigger: '#contact', start: 'top 72%' }
   });
 
-  // Section headings
   gsap.utils.toArray('.eyebrow, .sec-title').forEach(el => {
     gsap.from(el, {
       opacity: 0, y: 28, duration: 0.8,
@@ -924,7 +963,6 @@
     });
   });
 
-  // ── Side dots ──
   const SECS = ['hero','about','skills','works','contact'];
   const dotsWrap = document.getElementById('sideDots');
 
@@ -939,9 +977,7 @@
 
   SECS.forEach((id, i) => {
     ScrollTrigger.create({
-      trigger: '#' + id,
-      start: 'top center',
-      end: 'bottom center',
+      trigger: '#' + id, start: 'top center', end: 'bottom center',
       onEnter:     () => setDot(i),
       onEnterBack: () => setDot(i),
     });
