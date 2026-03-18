@@ -279,6 +279,23 @@
     .about-body p strong { color: var(--text); font-weight: 600; }
     .about-cta { margin-top: 32px; }
 
+    .about-right { display: flex; flex-direction: column; align-items: center; gap: 28px; }
+
+    .profile-photo-wrap {
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid var(--border);
+      box-shadow: 0 0 48px rgba(99,102,241,0.22), 0 0 0 6px rgba(99,102,241,0.07);
+      flex-shrink: 0;
+      transition: box-shadow 0.3s;
+    }
+    .profile-photo-wrap:hover {
+      box-shadow: 0 0 64px rgba(99,102,241,0.38), 0 0 0 6px rgba(99,102,241,0.12);
+    }
+    .profile-photo { width: 100%; height: 100%; object-fit: cover; display: block; }
+
     .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .stat-box {
       padding: 26px 22px;
@@ -526,22 +543,27 @@
           <a href="https://www.linkedin.com/in/haruki-iwasaki-57283435b" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="btn_linkedin">Connect on LinkedIn →</a>
         </div>
       </div>
-      <div class="stats-grid">
-        <div class="stat-box">
-          <div class="stat-num">2</div>
-          <div class="stat-lbl" data-i18n="stat_exhibitions">Int'l Exhibitions</div>
+      <div class="about-right">
+        <div class="profile-photo-wrap">
+          <img src="スーツ写真.jpg" alt="Haruki Iwasaki" class="profile-photo">
         </div>
-        <div class="stat-box">
-          <div class="stat-num">3+</div>
-          <div class="stat-lbl" data-i18n="stat_stacks">Tech Stacks</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-num">XR</div>
-          <div class="stat-lbl" data-i18n="stat_xr">Specialist</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-num">VP</div>
-          <div class="stat-lbl" data-i18n="stat_vp">MovIT</div>
+        <div class="stats-grid">
+          <div class="stat-box">
+            <div class="stat-num">2</div>
+            <div class="stat-lbl" data-i18n="stat_exhibitions">Int'l Exhibitions</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">3+</div>
+            <div class="stat-lbl" data-i18n="stat_stacks">Tech Stacks</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">XR</div>
+            <div class="stat-lbl" data-i18n="stat_xr">Specialist</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">VP</div>
+            <div class="stat-lbl" data-i18n="stat_vp">MovIT</div>
+          </div>
         </div>
       </div>
     </div>
