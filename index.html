@@ -281,6 +281,56 @@
 
     .about-right { display: flex; flex-direction: column; align-items: center; gap: 28px; }
 
+    /* ── Activities ── */
+    .activities-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      width: 100%;
+    }
+
+    .activity-card {
+      padding: 24px 22px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--bg-card);
+      backdrop-filter: blur(20px);
+      transition: border-color 0.3s, transform 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .activity-card::before {
+      content: '';
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 2px;
+      background: var(--grad);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .activity-card:hover { border-color: var(--primary); transform: translateY(-4px); }
+    .activity-card:hover::before { transform: scaleX(1); }
+
+    .activity-icon { font-size: 1.6rem; margin-bottom: 12px; display: block; }
+    .activity-title { font-size: 0.95rem; font-weight: 700; color: var(--text); margin-bottom: 14px; }
+
+    .activity-items { display: flex; flex-direction: column; gap: 7px; }
+    .activity-item {
+      font-size: 0.82rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .activity-item::before {
+      content: '';
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
     .profile-photo-wrap {
       width: 190px;
       height: 190px;
@@ -466,6 +516,7 @@
       .nav-links { display: none; }
       section { padding: 110px 6% 70px; }
       .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .activities-grid { grid-template-columns: 1fr; }
       .skills-grid { grid-template-columns: 1fr; }
       .side-dots { display: none; }
     }
@@ -566,6 +617,41 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Activities -->
+    <div class="activities-grid">
+
+      <div class="activity-card">
+        <span class="activity-icon">🏢</span>
+        <div class="activity-title" data-i18n="act1_title">MovIT Vice President</div>
+        <div class="activity-items">
+          <div class="activity-item" data-i18n="act1_i1">RAG Development</div>
+          <div class="activity-item" data-i18n="act1_i2">Contract Development</div>
+          <div class="activity-item" data-i18n="act1_i3">Consulting</div>
+          <div class="activity-item" data-i18n="act1_i4">TMS Production</div>
+        </div>
+      </div>
+
+      <div class="activity-card">
+        <span class="activity-icon">🥽</span>
+        <div class="activity-title" data-i18n="act2_title">VR Development</div>
+        <div class="activity-items">
+          <div class="activity-item" data-i18n="act2_i1">From planning to hardware</div>
+          <div class="activity-item" data-i18n="act2_i2">Laval Virtual 2025</div>
+        </div>
+      </div>
+
+      <div class="activity-card">
+        <span class="activity-icon">💻</span>
+        <div class="activity-title" data-i18n="act3_title">Web App Development</div>
+        <div class="activity-items">
+          <div class="activity-item">Vue.js</div>
+          <div class="activity-item">Next.js</div>
+          <div class="activity-item" data-i18n="act3_i3">Website Production</div>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -753,6 +839,17 @@ const i18n = {
     work3_desc:    'A matching platform connecting high school students with universities—streamlining discovery, enabling direct communication, and closing the information gap in Japan\'s education system.',
     btn_github:    'View on GitHub →',
 
+    act1_title: 'MovIT Vice President',
+    act1_i1:    'RAG Development',
+    act1_i2:    'Contract Development',
+    act1_i3:    'Consulting',
+    act1_i4:    'TMS Production',
+    act2_title: 'VR Development',
+    act2_i1:    'From planning to hardware',
+    act2_i2:    'Laval Virtual 2025',
+    act3_title: 'Web App Development',
+    act3_i3:    'Website Production',
+
     contact_eyebrow: 'Get In Touch',
     contact_title:   "Let's <span>build</span> something<br>remarkable",
     contact_desc:    "Whether you're interested in VR collaboration, web development, or just want to connect—I'd love to hear from you.",
@@ -795,6 +892,17 @@ const i18n = {
     work3_title:   'EduBridge',
     work3_desc:    '高校生と大学をつなぐマッチングプラットフォーム。情報格差を解消し、進路の発見と直接コミュニケーションを実現。',
     btn_github:    'GitHubで見る →',
+
+    act1_title: 'MovIT 副代表',
+    act1_i1:    'RAG開発',
+    act1_i2:    '受託開発',
+    act1_i3:    'コンサルティング',
+    act1_i4:    'TMS制作',
+    act2_title: 'VR開発',
+    act2_i1:    '企画からハードウェアまで',
+    act2_i2:    'Laval Virtual 2025',
+    act3_title: 'Webアプリ開発',
+    act3_i3:    'サイト制作',
 
     contact_eyebrow: 'お問い合わせ',
     contact_title:   '一緒に<span>素晴らしいもの</span>を<br>作りましょう',
