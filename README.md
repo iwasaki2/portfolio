@@ -51,8 +51,8 @@
 ![Arduino](https://img.shields.io/badge/-Arduino-00979D?style=flat&logo=arduino&logoColor=white)
 ![Haptics](https://img.shields.io/badge/-Haptic%20Tech-9C27B0?style=flat&logoColor=white)
 
-### 【DjangoによるWebサービス開発】
-PythonとDjangoを用いたWebアプリ開発。ログイン機能やデータ管理を実装し、ユーザーにとって静かで使いやすいUI/UXを目指しています。
+### 【Next.jsによるWebサービス開発】
+Webアプリ開発。Vercel,Supabase：バックエンド・データベースログイン機能やデータ管理を実装し、ユーザーに使いやすいUI/UXを目指しています。
 
 **技術スタック:**
 ![Python](https://img.shields.io/badge/-Python-3776AB?style=flat&logo=python&logoColor=white)
