@@ -30,21 +30,6 @@
 - 役割: マッチングサービスの開発中
 - 業務内容: 業務委託として高校と大学大学をつなぐマッチングサービスの開発に携わっています。
 
-## 📝 主な作品
-
-### 【Voice be Chord】
-**🏆 Laval Virtual 2025 出展作品**
-**IVRC2024 Seedステージ 展示**
-
-「正確なピッチで和音を鳴らすと、倍音が発生する」という現象を再現し、音楽経験のない人でも「コーラス倍音の奇跡」を体験できるVR作品です。
-
-**技術スタック:**
-![Unity](https://img.shields.io/badge/-Unity-000000?style=flat&logo=unity&logoColor=white)
-![C#](https://img.shields.io/badge/-C%23-239120?style=flat&logo=csharp&logoColor=white)
-![Mirror](https://img.shields.io/badge/-Mirror%20Networking-FF6B6B?style=flat&logoColor=white)
-### Laval Virtual 2025 
-### 【IVRC 2024 インタラクティブ作品】
-マルチプレイ体験を融合したVRプロジェクト。マイコン制御とUnityにより身体感覚の同期を実現。
 
 **技術スタック:**
 ![Unity](https://img.shields.io/badge/-Unity-000000?style=flat&logo=unity&logoColor=white)
